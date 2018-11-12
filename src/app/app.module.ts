@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CesiumDirective } from './cesium.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CesiumDirective
   ],
   imports: [
     BrowserModule,
