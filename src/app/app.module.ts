@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 import { CesiumDirective } from './cesium.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatGridListModule} from '@angular/material';
+import { DialogCreatePolylineComponentComponent } from './dialog-create-polyline-component/dialog-create-polyline-component.component';
+import { MapToolBarComponentComponent } from './map-tool-bar-component/map-tool-bar-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CesiumDirective
+    CesiumDirective,
+    DialogCreatePolylineComponentComponent,
+    MapToolBarComponentComponent
   ],
   imports: [
     BrowserModule,
