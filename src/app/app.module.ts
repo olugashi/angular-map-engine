@@ -3,14 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CesiumDirective } from './cesium.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatGridListModule} from '@angular/material';
+import { CesiumComponent } from './cesium/cesium.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CesiumDirective
+    CesiumComponent
   ],
   imports: [
     BrowserModule,
