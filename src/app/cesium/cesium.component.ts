@@ -1,4 +1,6 @@
 import { Component, ElementRef, HostBinding, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { CesiumPolyline } from './classes/cesium.component.polyline';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cesium',
@@ -10,8 +12,11 @@ export class CesiumComponent implements OnInit , OnDestroy {
   @ViewChild('container') public container: ElementRef;
 
   public viewer: any;
+  private polyline: CesiumPolyline;
 
-  constructor() {}
+  constructor(public activatedRoute: ActivatedRoute, public router: Router) {
+    this.polyline = new CesiumPolyline(this);
+  }
 
   ngOnInit() {
     this.initializeMap();
@@ -23,4 +28,8 @@ export class CesiumComponent implements OnInit , OnDestroy {
   ngOnDestroy(): void {
   }
 
+  onClick(event: Event) {
+    console.log('click event', event);
+    this.polyline.CreatePolyline();
+  }
 }
