@@ -3,16 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CesiumDirective } from './cesium.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatGridListModule} from '@angular/material';
+import { CesiumComponent } from './cesium/cesium.component';
 import { DialogCreatePolylineComponentComponent } from './dialog-create-polyline-component/dialog-create-polyline-component.component';
 import { MapToolBarComponentComponent } from './map-tool-bar-component/map-tool-bar-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CesiumDirective,
+    CesiumComponent
     DialogCreatePolylineComponentComponent,
     MapToolBarComponentComponent
   ],
