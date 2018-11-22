@@ -1,10 +1,10 @@
-const express = require('express');
-const app = express();
-const path = require('path');
-const server = require('http').Server(app);
-const io = require('socket.io')(server);
+var express = require('express');
+var app = express();
+var path = require('path');
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
 
-const posts = require('./server/routes/posts');
+var posts = require('./server/routes/posts');
 
 app.use(express.static(path.join(__dirname,'dist/my-app')));
 app.use('/posts',posts);
@@ -14,9 +14,19 @@ app.get('/',(req,res)=>{
     res.sendfile(path.join(__dirname,'dist/my-app/index.html'));
 });
 
-const port = process.env.port || 4600;
+var port = process.env.port || 4600;
 
 app.listen(port,(req,res)=>{
 
     console.log('Server is Running Port-'+ port);
+});
+
+io.on('connection', function(socket) {
+  socket.emit('announcements', { message: 'A new user has joined!' });
+});
+
+io.on('connection', function(socket) {
+  socket.on('event', function(data) {
+      console.log('A client sent us this dumb message:', data.message);
+  });
 });

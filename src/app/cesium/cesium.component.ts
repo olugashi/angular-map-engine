@@ -2,6 +2,7 @@
 import { Component, ElementRef, HostBinding, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { CesiumPolyline } from './classes/cesium.component.polyline';
 import { CesiumPolygons } from './classes/cesium.component.polygons';
+import { WebsocketServiceService } from 'src/app/services/websocket-service.service';
 
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
@@ -18,7 +19,7 @@ export class CesiumComponent implements OnInit , OnDestroy {
   private polyline: CesiumPolyline;
   private polygon: CesiumPolygons;
 
-  constructor(public activatedRoute: ActivatedRoute, public router: Router) {
+  constructor(public activatedRoute: ActivatedRoute, public router: Router, private websocketService: WebsocketServiceService) {
     this.polyline = new CesiumPolyline(this);
     this.polygon = new CesiumPolygons(this);
   }
