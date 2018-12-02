@@ -8,6 +8,7 @@ import { MatGridListModule , } from '@angular/material';
 import { MatButtonModule , } from '@angular/material/button';
 import { CesiumComponent } from './cesium/cesium.component';
 import { MapToolBarComponentComponent } from './map-tool-bar-component/map-tool-bar-component.component';
+import { MapToolBarService } from './services/map-tool-bar.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MapToolBarComponentComponent } from './map-tool-bar-component/map-tool-
     MatGridListModule,
     MatButtonModule
   ],
-  providers: [],
+  providers: [MapToolBarService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
