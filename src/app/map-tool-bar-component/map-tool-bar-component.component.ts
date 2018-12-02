@@ -21,10 +21,12 @@ export class MapToolBarComponentComponent implements OnInit {
   }
   CreatePolygon() {
     console.log('click event', event);
+    this.mapToolBarService.ChangeEntity('Polygon');
   }
 
   CreateMarker() {
     console.log('click event', event);
+    this.mapToolBarService.ChangeEntity('Marker');
   }
 
   SendMessage() {

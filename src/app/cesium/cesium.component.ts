@@ -29,8 +29,8 @@ export class CesiumComponent implements OnInit , OnDestroy {
   ngOnInit() {
     this.initializeMap();
     this.initIoConnection();
-    this.mapToolBarService.change.subscribe(this.CreatePolyline);
-    
+    this.mapToolBarService.change.subscribe(this.CreateEntity.bind(this));
+
   }
 
   private initIoConnection(): void {
@@ -47,7 +47,7 @@ export class CesiumComponent implements OnInit , OnDestroy {
 
     switch  (s) {
     case 'Polyline':
-      this.CreatePolyline();
+    this.CreatePolyline();
       break;
     case 'Polygon':
       this.CreatePolygon();
