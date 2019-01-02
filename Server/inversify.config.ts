@@ -14,14 +14,13 @@ export default container;*/
  // load everything needed to the Container
 
 import { Container } from "inversify";
-import { LocalizationService } from "./src/Service/LocalizationService";
-import TYPES from "./types";
+import { LocalizationService, ILocalizationService } from "./src/Service/LocalizationService";
 import { IHomeController, HomeController } from "./src/Controllers/HomeController";
 import { ISubscriber, Subscriber } from "./src/Service/Subscriber";
+import TYPES from "./types";
 
-
- var container = new Container();
- container.bind<LocalizationService>(TYPES.LocalizationService).to(LocalizationService);
- container.bind<IHomeController>(TYPES.HomeController).to(HomeController);
- container.bind<ISubscriber>(TYPES.Subscriber).to(Subscriber);
+ var container = new Container({ defaultScope: "Singleton" });
+ container.bind<IHomeController>(TYPES.HomeController).to(HomeController).inSingletonScope;
+ container.bind<ILocalizationService>(TYPES.LocalizationService).to(LocalizationService).inSingletonScope;
+ container.bind<ISubscriber>(TYPES.Subscriber).to(Subscriber).inSingletonScope;
  export default container

@@ -19,7 +19,7 @@ export class LocalizationService implements ILocalizationService
     constructor(@inject(TYPES.Subscriber) _subscriber: ISubscriber)
     {
         this.subscriber = _subscriber
-        _subscriber.on('Localization', (data: any)=>console.log(`${data}`));
+       
         console.log("constructor LocalizationService.");
     }
 
@@ -28,8 +28,12 @@ export class LocalizationService implements ILocalizationService
         setInterval(()=> 
         {  
             //console.log("setInterval LocalizationMessage.");
-           this.subscriber.emit("Localization",new LocalizationMessage("source","destination","LocalizationMessage",2,2));   
-           console.log("send Localization Data");
+           this.subscriber.emit("Localization",
+                                new LocalizationMessage(
+                                    "source",
+                                    "destination",
+                                    "LocalizationMessage",2,2));   
+           //console.log("send Localization Data");
         }, 100);
     }
     StopTimer()

@@ -15,7 +15,6 @@ export class LocalizationMessage extends BaseMessage implements  ILocalization{
     super(source, destination, messageTyp);
     this.Latitude = latitude;
     this.Longitude = longitude;
-    console.log(`${latitude},${longitude}`);
   }
 
   private Latitude: number;

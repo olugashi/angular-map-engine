@@ -16,5 +16,6 @@ export class Subscriber extends EventEmitter implements ISubscriber {
     
     constructor() {
         super();
+        console.log("constructor Subscriber");
     }
 }
