@@ -1,2 +1,3 @@
-/node_modules
-/out
+
+Server/out/
+Server/node_modules/
