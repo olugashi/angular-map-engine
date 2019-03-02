@@ -23,8 +23,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
-my-app
-
 cesium
 Apache-2.0
 Copyright 2011-2018 CesiumJS Contributors
