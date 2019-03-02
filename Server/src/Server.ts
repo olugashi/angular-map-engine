@@ -4,6 +4,8 @@ import * as bodyParser from 'body-parser';
 import TYPES from '../types';
 import { IHomeController } from './Controllers/HomeController';
 import container from '../inversify.config';
+import * as http from "http";
+import * as SocketIO from "socket.io";
 
  export class Server {
     HomeController: IHomeController | undefined;

@@ -1,7 +1,7 @@
 .toolbar-left {
   background-color: transparent; /* Green background */
   border: 5px solid transparent;
-  color: white; /* White text */
+  color:rgb(48, 27, 124); /* White text */
   padding: 10px 10px; /* Some padding */
   cursor: pointer; /* Pointer/hand icon */
   float: left; /* Float the buttons side by side */

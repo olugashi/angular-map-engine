@@ -31,8 +31,3 @@ export class HomeController implements IHomeController {
       return 'Home sweet home';
     }
 }
-/*export class Controller  {
-    //constructor(@inject(TYPES.LocalizationService) localizationService: ILocalizationService) {
-    //    localizationService.StartTimer();
-    }
-}*/

@@ -29,8 +29,12 @@ export class CesiumPolyline {
     this.cesium.viewer.cesiumHandler = new Cesium.ScreenSpaceEventHandler(this.cesium.viewer.scene.canvas);
     this.cesium.viewer.cesiumHandler.setInputAction(this.leftClickInputAction.bind(this), Cesium.ScreenSpaceEventType.LEFT_CLICK);
     this.cesium.viewer.cesiumHandler.setInputAction(this.doubleClickInputAction.bind(this), Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
+    this.cesium.viewer.cesiumHandler.setInputAction(this.mouseMoveInputAction.bind(this), Cesium.ScreenSpaceEventType.MOUSE_MOVE);
   }
 
+  private mouseMoveInputAction(event: { endPosition: { x: number, y: number } }): void {
+    this.updatePolygon(event);
+  }
   private leftClickInputAction(event: { position: { x: number, y: number } }): void {
     this.startDrawPolygon(event);
   }
@@ -45,7 +49,6 @@ export class CesiumPolyline {
     }
 
     this._polylineEntity.polyline.show = true;
-
     this._positions.push(cartesian);
   }
 
@@ -55,6 +58,20 @@ export class CesiumPolyline {
     this.cesium.viewer.cesiumHandler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
 
     this._polylineEntity.polyline.show = true;
+  }
+  private updatePolygon(iClickEvent) {
+    const cartesian = this.cesium.viewer.camera.pickEllipsoid(iClickEvent.endPosition, this.cesium.viewer.scene.globe.ellipsoid);
+    if (!cartesian) {
+      return;
+    }
+
+    if (this._positions.length === 1) {
+      this._positions.push(cartesian);
+    } else if (this._positions.length > 1) {
+      this._positions.splice(this._positions.length - 1, 1, cartesian);
+    }
+
+    console.log(this._positions.length);
   }
 
   destroy() {

@@ -1,3 +1,4 @@
+import { DialogCreatePolylineComponentComponent } from './dialog-create-polyline-component/dialog-create-polyline-component.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -15,6 +16,7 @@ import { MapToolBarService } from './services/map-tool-bar.service';
     AppComponent,
     CesiumComponent,
     MapToolBarComponentComponent,
+    DialogCreatePolylineComponentComponent,
   ],
   imports: [
     BrowserModule,
