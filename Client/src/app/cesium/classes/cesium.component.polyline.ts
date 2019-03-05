@@ -1,20 +1,21 @@
 import { CesiumComponent } from '../cesium.component';
+import { BaseEntity } from './cesium.component.baseEntity';
 
-export class CesiumPolyline {
+export class CesiumPolyline extends BaseEntity{
   public _polylineEntity;
   public _positions: Array<any> = [];
-  public polyline_id = 0;
+
 
   constructor(private cesium: CesiumComponent) {
-
+    super();
   }
 
   public CreateEntity() {
     this._positions = [];
-
+    var entityId = this.CreateEntityId();
     this._polylineEntity = this.cesium.viewer.entities.add({
-      id: this.polyline_id += 1,
-      name: 'Polyline' + this.polyline_id,
+      id: entityId,
+      name: 'Polyline' + entityId,
       polyline: {
         show: true,
         positions: this._positions,
@@ -76,5 +77,20 @@ export class CesiumPolyline {
 
   destroy() {
     this.cesium.viewer.cesiumHandler.destroy();
+  }
+  private setCallbackProperty(value, property?) {
+    return new Cesium.CallbackProperty(function () {
+      // handle a function
+      /*if (isFunction(value)) {
+        return value(property);
+      }
+
+      // handle reference binding
+      if (!isUndefined(property)) {
+        return value[property];
+      }*/
+
+      return value;
+    }, false);
   }
 }

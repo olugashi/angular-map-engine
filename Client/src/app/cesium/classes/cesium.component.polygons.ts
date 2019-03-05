@@ -1,20 +1,22 @@
 import { CesiumComponent } from '../cesium.component';
+import { BaseEntity } from './cesium.component.baseEntity';
 
-export class CesiumPolygons {
+export class CesiumPolygons extends BaseEntity{
 
   public _polygonEntity;
   public _positions: Array<any> = [];
-  public polygon_id = 0;
+
 
   constructor(private cesium: CesiumComponent) {
-
+    super();
   }
+
   public CreateEntity() {
     this._positions = [];
-
+    var entityId = this.CreateEntityId();
     this._polygonEntity = this.cesium.viewer.entities.add({
-      id: this.polygon_id += 1,
-      name: 'PolygonDrawer' + this.polygon_id,
+      id: entityId,
+      name: 'PolygonDrawer' + entityId,
       polyline: {
         show: true,
         positions: this._positions,
