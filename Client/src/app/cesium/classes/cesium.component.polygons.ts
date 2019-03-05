@@ -13,7 +13,7 @@ export class CesiumPolygons extends BaseEntity{
 
   public CreateEntity() {
     this._positions = [];
-    var entityId = this.CreateEntityId();
+    const entityId = this.CreateEntityId();
     this._polygonEntity = this.cesium.viewer.entities.add({
       id: entityId,
       name: 'PolygonDrawer' + entityId,

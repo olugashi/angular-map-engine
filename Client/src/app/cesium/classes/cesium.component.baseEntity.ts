@@ -1,8 +1,8 @@
 export class BaseEntity {
-  public static EntityId: number = 0;
+  public static EntityId = 0;
 
-  public CreateEntityId() : number
+  public CreateEntityId(): number
   {
-    return BaseEntity.EntityId++;
+    return ++BaseEntity.EntityId;
   }
 }

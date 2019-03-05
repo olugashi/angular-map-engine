@@ -12,7 +12,7 @@ export class CesiumPolyline extends BaseEntity{
 
   public CreateEntity() {
     this._positions = [];
-    var entityId = this.CreateEntityId();
+    const  entityId = this.CreateEntityId();
     this._polylineEntity = this.cesium.viewer.entities.add({
       id: entityId,
       name: 'Polyline' + entityId,
